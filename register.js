@@ -67,6 +67,4 @@ function showErrorMessage(message){
     status.style.color = "red";
 }
 
-if (!(false || false)){
-    print("yeah boi)")
-}
+
