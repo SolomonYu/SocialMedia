@@ -2,19 +2,41 @@
 <head>
     <title>Solomonbook</title>
     <script src="index.js"></script>
+    <script src="register.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h3>Login</h3>
+    <h3 id="title">Login</h3>
+    <ul id="navbar">
+        <div onclick="showLogin()">Login</div>
+        <div onclick="showRegister()">Register</div>
+    </ul>
     <hr>
     <div id="status"></div>
-    <form id="loginForm">
-        <input type="text" placeholder="Username"><br>
-        <input type="password" placeholder="Password"><br>
-
-    </form>
-    <button onclick="login()">Login</button>
-    <br>
-    <a href="register.html">Click here</a> to register.
+    <div id="loginSection">
+        <form id="loginForm">
+            <input type="text" placeholder="Username"><br>
+            <input type="password" placeholder="Password"><br>
+    
+        </form>
+        <button onclick="login()">Login</button>
+        <br>
+        <!-- <a href="register.html">Click here</a> to register. -->
+    </div>
+    <div id="registerSection" style="display: none;">
+        <form>
+            <input type="text" placeholder="Username"><br>
+            <input type="password" placeholder="Password"><br>
+            <input type="date" placeholder="Date of Birth">
+    
+        </form>
+        <button onclick="register()">Register</button>
+    </div>
+    <div id="profileSection" style="display: none;">
+        Profile.
+        <br>
+        <div id="profileInfo"></div>
+    </div>
+    
 </body>
 </html>

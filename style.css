@@ -39,3 +39,32 @@ button:hover{
     background: white;
     color: dodgerblue;
 }
+
+#profileSection{
+    margin: 5px;
+    border: 1 px solid black;
+    border-radius: 1px;
+    padding: 5px;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: dodgerblue;
+}
+
+ul>div{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul>div:hover{
+    cursor: pointer;
+    background-color: blue;
+}

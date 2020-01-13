@@ -1,9 +1,9 @@
 
 
 function register(){
-    var username = document.forms[0].elements[0].value;
-    var password = document.forms[0].elements[1].value;
-    var date = document.forms[0].elements[2].value;
+    var username = document.forms[1].elements[0].value;
+    var password = document.forms[1].elements[1].value;
+    var date = document.forms[1].elements[2].value;
 
     console.log("Username: " + username);
     console.log("Password: " + password);
