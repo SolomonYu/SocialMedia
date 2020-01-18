@@ -8,6 +8,8 @@ function login(){
         var userFound = false;
         var users = JSON.parse(localStorage.getItem("users"));
         for (var i = 0; i < users.length; i++){
+            console.log("message in here")
+            console.log(users[i].username);
             if (users[i].username == username){
                 if (users[i].password == password){
                     console.log("User logged in!");
@@ -20,7 +22,13 @@ function login(){
                     document.getElementById("profileSection").style.display = "block";
 
                     var currentUser = users[i];
-                    document.getElementById("profileInfo").innerHTML = "Welcome " + currentUser.username + "!";
+                    var profileInfo = document.getElementById("profileInfo");
+                    profileInfo.innerHTML = "Welcome " + currentUser.username + "!"
+                    var profileNode = document.createElement("div");
+                    profileNode.innerHTML = "Your password is: " + currentUser.password;
+                    profileNode.innerHTML += "spaghetti"
+                    profileInfo.appendChild(profileNode);
+
                     break;
                 }
             }
