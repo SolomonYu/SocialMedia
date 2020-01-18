@@ -1,4 +1,4 @@
-
+var currentUser = null;
 
 function login(){
     var username = document.forms[0].elements[0].value;
@@ -8,8 +8,7 @@ function login(){
         var userFound = false;
         var users = JSON.parse(localStorage.getItem("users"));
         for (var i = 0; i < users.length; i++){
-            console.log("message in here")
-            console.log(users[i].username);
+            //console.log(users[i].username);
             if (users[i].username == username){
                 if (users[i].password == password){
                     console.log("User logged in!");
@@ -21,12 +20,14 @@ function login(){
                     document.getElementById("title").innerHTML = "Profile";
                     document.getElementById("profileSection").style.display = "block";
 
-                    var currentUser = users[i];
+                    currentUser = users[i];
                     var profileInfo = document.getElementById("profileInfo");
                     profileInfo.innerHTML = "Welcome " + currentUser.username + "!"
                     var profileNode = document.createElement("div");
                     profileNode.innerHTML = "Your password is: " + currentUser.password;
-                    profileNode.innerHTML += "spaghetti"
+                    if (currentUser.date != null){
+                        profileNode.innerHTML += "<br>Your birthday is " + currentUser.date;
+                    }
                     profileInfo.appendChild(profileNode);
 
                     break;
@@ -59,4 +60,21 @@ function showLogin(){
     document.getElementById("loginSection").style.display = "block";
     document.getElementById("registerSection").style.display = "none";
     document.getElementById("title").innerHTML = "Login";
+}
+
+function updateStatus(){
+    if (currentUser != null){
+        var statusInput = document.getElementById("profileStatus").value;
+        document.getElementById("currentStatus").innerHTML = statusInput;
+        var users = JSON.parse(localStorage.getItem("users"));
+        for (var i = 0; i < users.length; i++){
+            if (users[i].username == currentUser.username){
+                currentUser.status = statusInput;
+                users[i] = currentUser;
+                localStorage.setItem("users", JSON.stringify(users)); 
+            }
+        }
+    }
+    
+
 }
